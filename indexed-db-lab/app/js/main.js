@@ -196,7 +196,7 @@ var idbApp = (function() {
       var store = tx.objectStore('products')
       var index = store.index('description')
       return index.openCursor(range)
-    }).then(function(cursor) {
+    }).then(function showRange(cursor) {
       if (!cursor) { return }
       console.log('Cursored at:', cursor.value.description)
       s += '<h2>Description - ' + cursor.value.description + '</h2><p>'
@@ -204,7 +204,7 @@ var idbApp = (function() {
         s += field + '=' + cursor.value[field] + '<br/>'
       }
       s += '</p>'
-      return cursor.continue()
+      return cursor.continue().then(showRange)
     }).then(function() {
       if (s === '') {s = '<p>No results.</p>';}
       document.getElementById('results').innerHTML = s;
