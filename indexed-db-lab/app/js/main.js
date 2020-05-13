@@ -282,9 +282,11 @@ var idbApp = (function() {
   }
 
   function getOrders() {
-
-    // TODO 5.4 - get all objects from 'orders' object store
-
+    return dbPromise.then(function(db) {
+      var tx = db.transaction('orders', 'readonly')
+      var store = tx.objectStore('orders')
+      return store.getAll()
+    })
   }
 
   function fulfillOrders() {
@@ -296,7 +298,7 @@ var idbApp = (function() {
   }
 
   function processOrders(orders) {
-
+    console.log('orders: ', orders)
     // TODO 5.5 - get items in the 'products' store matching the orders
 
   }
