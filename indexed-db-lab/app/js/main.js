@@ -21,7 +21,7 @@ var idbApp = (function() {
     return
   }
 
-  var dbPromise;
+  var dbPromise = idb.open('couches-n-things', 1)
 
   function addProducts() {
 
