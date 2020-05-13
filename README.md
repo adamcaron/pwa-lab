@@ -1,3 +1,12 @@
+# Progressive Web App Lab
+
+Based from [PWA Training Labs](https://github.com/google-developer-training/pwa-training-labs)
+
+[https://codelabs.developers.google.com/dev-pwa-training/](https://codelabs.developers.google.com/dev-pwa-training/)
+
+
+----
+
 # PWA Training Labs
 
 This repo contains open-source training labs for building Progressive Web Apps.

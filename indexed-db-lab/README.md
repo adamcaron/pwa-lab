@@ -1,3 +1,23 @@
+# Notes 
+
+Based from [IndexedDB API lab](https://codelabs.developers.google.com/codelabs/pwa-indexed-db/index.html?index=..%2F..dev-pwa-training#0)
+
+How to create, read, update and delete data in the database
+The `getAll` method
+How to use cursors to iterate over the data
+
+Exploration using a store of products and owners.
+
+`npm install -g http-server`
+
+`http-server -p 8080 -a localhost -c 0`
+
+UI available at [http://localhost:8080/indexed-db-lab/app/](http://localhost:8080/indexed-db-lab/app/)
+
+test report available at [http://localhost:8080/indexed-db-lab/app/test/test.html](http://localhost:8080/indexed-db-lab/app/test/test.html)
+
+----
+
 ## IndexedDB
 
 In this lab you learn the basics of working with the IndexedDB API
