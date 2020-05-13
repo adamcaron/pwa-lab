@@ -192,9 +192,19 @@ var idbApp = (function() {
     var range = IDBKeyRange.only(key);
     var s = '';
     dbPromise.then(function(db) {
-
-      // TODO 4.4b - get items by their description
-
+      var tx = db.transaction('products', 'readonly')
+      var store = tx.objectStore('products')
+      var index = store.index('description')
+      return index.openCursor(range)
+    }).then(function(cursor) {
+      if (!cursor) { return }
+      console.log('Cursored at:', cursor.value.description)
+      s += '<h2>Description - ' + cursor.value.description + '</h2><p>'
+      for (var field in cursor.value) {
+        s += field + '=' + cursor.value[field] + '<br/>'
+      }
+      s += '</p>'
+      return cursor.continue()
     }).then(function() {
       if (s === '') {s = '<p>No results.</p>';}
       document.getElementById('results').innerHTML = s;
